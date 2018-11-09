@@ -18,7 +18,7 @@
   "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
   "license": "MIT",
   "scripts": {
-    "postinstall": "ng build --aot -prod",
+    "heroku-postbuild": "ng build --prod",
     "ng": "ng",
     "start": "node server.js --proxy-config proxy.conf.json",
     "build": "ng build --prod",
