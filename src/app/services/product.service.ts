@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ProductService {
 
-  API_URL  =  '/api/products/';
+  API_URL  =  'https://drink-api-restful.herokuapp.com/api/products/';
 
   constructor(private httpClient: HttpClient) { }
 

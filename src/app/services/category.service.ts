@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CategoryService {
 
-  API_URL = '/api/categories/';
+  API_URL = 'https://drink-api-restful.herokuapp.com/api/categories/';
 
   constructor(private httpClient: HttpClient) {
   }
