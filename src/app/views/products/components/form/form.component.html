@@ -1,0 +1,97 @@
+<div class="container animated fadeIn">
+  <div class="row justify-content-center">
+    <div class="col-md">
+      <div class="card">
+        <div class="card-header text-white bg-dark text-center">
+          <h4 class="card-title">{{title}}</h4>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="form-group col-md">
+                <label for="name">Name</label>
+                <input id="name" class="form-control"
+                       formControlName="name" required
+                       autocomplete="off">
+                <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                     class="text-red">
+                  <div *ngIf="name.errors['required']">Name is required.</div>
+                </div>
+              </div>
+
+              <div class="form-group col-md">
+                <label for="code">Code</label>
+                <input id="code" class="form-control"
+                       formControlName="code" required
+                       autocomplete="off">
+                <div *ngIf="code.invalid && (code.dirty || code.touched)"
+                     class="text-red">
+                  <div *ngIf="code.errors['required']">Code is required.</div>
+                </div>
+              </div>
+
+              <div class="form-group col-md">
+                <label for="quantity">Quantity</label>
+                <input id="quantity" class="form-control"
+                       formControlName="quantity" required
+                       autocomplete="off">
+                <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)"
+                     class="text-red">
+                  <div *ngIf="quantity.errors['required']">Quantity is required.</div>
+                  <div *ngIf="quantity.errors['pattern']">It isn't a valid number.</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="form-group col-md">
+                <label for="sale_price">Sale Price</label>
+                <input id="sale_price" class="form-control"
+                       formControlName="sale_price" required
+                       autocomplete="off">
+                <div *ngIf="sale_price.invalid && (sale_price.dirty || sale_price.touched)"
+                     class="text-red">
+                  <div *ngIf="sale_price.errors['required']">Sale Price is required.</div>
+                  <div *ngIf="sale_price.errors['pattern']">It isn't a valid number.</div>
+                </div>
+              </div>
+
+              <div class="form-group col-md">
+                <label for="purchase_price">Purchase Price</label>
+                <input id="purchase_price" class="form-control"
+                       formControlName="purchase_price" required
+                       autocomplete="off">
+                <div *ngIf="purchase_price.invalid && (purchase_price.dirty || purchase_price.touched)"
+                     class="text-red">
+                  <div *ngIf="purchase_price.errors['required']">Purchase Price is required.</div>
+                  <div *ngIf="purchase_price.errors['pattern']">It isn't a valid number.</div>
+                </div>
+              </div>
+
+              <div class="form-group col-md">
+                <label for="category_id">Category</label>
+                <select id="category_id" formControlName="category_id" class="form-control">
+                  <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+                </select>
+
+                <div *ngIf="category_id.invalid && (category_id.dirty || category_id.touched)"
+                     class="text-red">
+                  <div *ngIf="category_id.errors['required']">Category is required.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-center text-white bg-dark" align="center">
+            <div class="col-md-12">
+              <button [type]="" class="btn btn-primary" [disabled]="form.invalid">{{btnSubmit}}</button> |
+              <a [routerLink]="['/products']" class="btn btn-danger">Cancelar</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

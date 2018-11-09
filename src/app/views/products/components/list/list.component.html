@@ -1,0 +1,54 @@
+<div class="container animated fadeIn">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header text-white bg-dark text-center">
+          <h4 class="card-title">List of Products
+            <a routerLink="add" class="btn btn-primary text-white pull-right"><i class="fa fa-plus"></i> Nuevo</a>
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="col-md-12 table-responsive">
+            <table class="table table-inverse table-hover">
+              <thead>
+              <tr>
+                <th>Code</th>
+                <th>Quantity</th>
+                <th>Sale Price</th>
+                <th>Purchase Price</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Options</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let p of products">
+                <td>{{p.code}}</td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.sale_price }}</td>
+                <td>{{p.purchase_price}}</td>
+                <td>
+                  <ng-template [ngIf]="p.status" [ngIfElse]="danger">
+                    <span class="badge badge-primary">Activo</span>
+                  </ng-template>
+                  <ng-template #danger>
+                    <span class="badge badge-primary">Inactivo</span>
+                  </ng-template>
+                </td>
+                <td>
+                  <img [src]="'https://drink-api-restful.herokuapp.com/storage/products/'+p.image" height="50" width="50">
+                </td>
+                <td>{{p.description}}</td>
+                <td>
+
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
